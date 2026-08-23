@@ -180,6 +180,16 @@ nav a:hover::after,
 nav .active::after{
 width:100%;
 }
+nav.main-nav{
+    display:flex !important;
+}
+
+nav.main-nav.open{
+    display:flex !important;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
 
 .theme-btn{
 width:45px;
@@ -2080,13 +2090,12 @@ transform:translateY(-15px);
     }
 
     .hero-image{
-        width:320px;
-        height:450px;
+        width:285px;
+        height:400px;
     }
 
     .main-image{
-        width:280px;
-        top:35px;
+        width:245px;
     }
 
     .orbit{
@@ -2448,13 +2457,12 @@ transform:translateY(-15px);
     }
 
     .hero-image{
-        width:280px;
-        height:390px;
+        width:235px;
+        height:330px;
     }
 
     .main-image{
-        width:245px;
-        top:25px;
+        width:210px;
     }
 
     .orbit{
@@ -2642,14 +2650,13 @@ transform:translateY(-15px);
     .hero-content h3{
         font-size:16px;
     }
-
     .hero-image{
-        width:250px;
-        height:360px;
+        width:205px;
+        height:300px;
     }
 
     .main-image{
-        width:220px;
+        width:185px;
     }
 
     .orbit{
