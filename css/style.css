@@ -69,7 +69,7 @@ filter:drop-shadow(0 0 20px rgba(0,153,255,.6));
     width:400px;
     position:relative;
     z-index:5;
-    top: 100px;
+    top: 60px;
 
     filter:
     drop-shadow(0 0 25px #0099ff)
@@ -351,11 +351,10 @@ right:-10%;
 .skills-icons i:nth-child(8){
 bottom:35%;
 right:20%;
-}
-50%{
+
 transform:translateY(-15px);
 }
-}
+
 
 
 .about-section{
@@ -1915,6 +1914,8 @@ transform:translateY(-15px);
         flex-direction:column-reverse;
         justify-content:center;
         text-align:center;
+        padding-bottom:0;
+
     }
 
     .hero-content{
@@ -1948,8 +1949,8 @@ transform:translateY(-15px);
     }
 
     .main-image{
-        width:350px;
-        top:60px;
+        width:245px;
+        top:10px;
     }
 
     .orbit{
@@ -1965,7 +1966,7 @@ transform:translateY(-15px);
     }
 
     .about-section{
-        margin-top:-100px;
+        margin-top:-105px;
     }
 
     .about-card{
@@ -2096,10 +2097,11 @@ transform:translateY(-15px);
 
     .main-image{
         width:245px;
+        top:15px;
     }
 
     .orbit{
-        width:360px;
+        width:330px;
         height:360px;
         margin-left:-180px;
         margin-top:-180px;
@@ -2112,7 +2114,7 @@ transform:translateY(-15px);
 
     .about-section{
         width:92%;
-        margin-top:-80px;
+        margin-top:-125px;
     }
 
     .about-card{
@@ -2459,14 +2461,16 @@ transform:translateY(-15px);
     .hero-image{
         width:235px;
         height:330px;
+        margin-top:0;
     }
 
     .main-image{
-        width:210px;
+        width:205px;
+        top:5px;
     }
 
     .orbit{
-        width:310px;
+        width:270px;
         height:310px;
         margin-left:-155px;
         margin-top:-155px;
@@ -2484,6 +2488,10 @@ transform:translateY(-15px);
     .contact-section,
     .footer{
         width:94%;
+    }
+
+    .about-section{
+        margin-top:-100px;
     }
 
     .about-card{
@@ -2706,4 +2714,67 @@ img{
 button,
 a{
     -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =========================================================
+   FINAL HERO / ABOUT MOBILE OVERLAP
+========================================================= */
+
+@media (max-width:400px){
+
+    .hero-image{
+        width:205px;
+        height:300px;
+        margin-top:0;
+    }
+
+    .main-image{
+        width:185px;
+        top:8px;
+    }
+
+    .orbit{
+        width:230px;
+        height:230px;
+        margin-left:-115px;
+        margin-top:-115px;
+    }
+
+    .skill-icon{
+        width:29px;
+        height:29px;
+    }
+
+    .about-section{
+        margin-top:-110px;
+    }
+}
+
+
+/* =========================================
+   FIX HERO / ABOUT OVERLAP
+========================================= */
+
+.hero{
+    position:relative;
+    z-index:1;
+}
+
+.about-section{
+    position:relative;
+    z-index:20;
+    margin-top:-120px;
+}
+
+.about-card{
+    position:relative;
+    z-index:30;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(3,15,45,.99),
+        rgba(5,22,70,.99)
+    );
 }

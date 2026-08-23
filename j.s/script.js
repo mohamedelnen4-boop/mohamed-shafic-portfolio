@@ -1,104 +1,212 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
-    const navLinks = document.querySelectorAll(".main-nav a");
+    /* ===============================
+       GET HEADER
+    =============================== */
 
-    // التأكد إن عناصر القائمة موجودة
-    if (!menuToggle || !mainNav) {
+    const header = document.querySelector("header");
+
+    if (!header) {
+        console.warn("Header not found");
         return;
     }
 
-    // فتح وقفل القائمة
-    menuToggle.addEventListener("click", (event) => {
 
-        event.stopPropagation();
+    /* ===============================
+       GET / CREATE NAV
+    =============================== */
 
-        const isOpen = mainNav.classList.toggle("open");
+    let mainNav =
+        document.getElementById("mainNav") ||
+        header.querySelector("nav");
 
-        menuToggle.classList.toggle("active", isOpen);
+    if (!mainNav) {
+        console.warn("Navigation not found");
+        return;
+    }
+
+    mainNav.id = "mainNav";
+    mainNav.classList.add("main-nav");
+
+
+    /* ===============================
+       GET / CREATE MENU BUTTON
+    =============================== */
+
+    let menuToggle =
+        document.getElementById("menuToggle");
+
+    if (!menuToggle) {
+
+        menuToggle =
+            document.createElement("button");
+
+        menuToggle.type = "button";
+
+        menuToggle.id = "menuToggle";
+
+        menuToggle.className = "menu-toggle";
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open menu"
+        );
 
         menuToggle.setAttribute(
             "aria-expanded",
-            String(isOpen)
+            "false"
         );
 
-    });
+        menuToggle.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>
+        `;
+
+        header.appendChild(menuToggle);
+    }
 
 
-    // عند الضغط على أي لينك
-    navLinks.forEach((link) => {
+    /* ===============================
+       NAV LINKS
+    =============================== */
 
-        link.addEventListener("click", () => {
-
-            // إزالة Active من كل الروابط
-            navLinks.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            // إضافة Active للرابط الحالي
-            link.classList.add("active");
-
-            // قفل القائمة
-            mainNav.classList.remove("open");
-
-            menuToggle.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-        });
-
-    });
+    const navLinks =
+        mainNav.querySelectorAll("a");
 
 
-    // قفل القائمة عند الضغط خارجها
-    document.addEventListener("click", (event) => {
+    /* ===============================
+       OPEN MENU
+    =============================== */
 
-        const clickedInsideNav =
-            mainNav.contains(event.target);
+    function openMenu() {
 
-        const clickedToggle =
-            menuToggle.contains(event.target);
+        mainNav.classList.add("open");
 
-        if (
-            !clickedInsideNav &&
-            !clickedToggle &&
-            mainNav.classList.contains("open")
-        ) {
+        menuToggle.classList.add("active");
 
-            mainNav.classList.remove("open");
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+    }
 
-            menuToggle.classList.remove("active");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+    /* ===============================
+       CLOSE MENU
+    =============================== */
+
+    function closeMenu() {
+
+        mainNav.classList.remove("open");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+
+
+    /* ===============================
+       TOGGLE MENU
+    =============================== */
+
+    menuToggle.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        const isOpen =
+            mainNav.classList.contains("open");
+
+        if (isOpen) {
+
+            closeMenu();
+
+        } else {
+
+            openMenu();
 
         }
 
     });
 
 
-    // قفل القائمة بزر Escape
-    document.addEventListener("keydown", (event) => {
+    /* ===============================
+       NAVIGATION LINKS
+    =============================== */
+
+    navLinks.forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.forEach((item) => {
+
+                item.classList.remove("active");
+
+            });
+
+            link.classList.add("active");
+
+            closeMenu();
+
+        });
+
+    });
+
+
+    /* ===============================
+       CLICK OUTSIDE
+    =============================== */
+
+    document.addEventListener("click", (event) => {
+
+        const clickedInsideNav =
+            mainNav.contains(event.target);
+
+        const clickedMenuButton =
+            menuToggle.contains(event.target);
 
         if (
-            event.key === "Escape" &&
-            mainNav.classList.contains("open")
+            mainNav.classList.contains("open") &&
+            !clickedInsideNav &&
+            !clickedMenuButton
         ) {
 
-            mainNav.classList.remove("open");
+            closeMenu();
 
-            menuToggle.classList.remove("active");
+        }
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+    });
+
+
+    /* ===============================
+       ESC KEY
+    =============================== */
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    });
+
+
+    /* ===============================
+       CLOSE ON RESIZE
+    =============================== */
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 992) {
+
+            closeMenu();
 
         }
 
