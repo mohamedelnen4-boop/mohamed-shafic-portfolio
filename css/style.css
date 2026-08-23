@@ -149,9 +149,6 @@ filter:drop-shadow(0 0 20px rgba(0,153,255,.6));
     }
 }
 
-.skill-icon:hover{
-    transform:scale(1.15);
-}
 nav{
 display:flex;
 gap:35px;
@@ -181,9 +178,8 @@ nav .active::after{
 width:100%;
 }
 nav.main-nav{
-    display:flex !important;
+    display:flex;
 }
-
 nav.main-nav.open{
     display:flex !important;
     opacity:1;
@@ -292,13 +288,13 @@ background:#00aaff;
 position:relative;
 }
 
-.hero-image img{
+/* .hero-image img{
 width:520px;
 max-width:100%;
 filter:drop-shadow(0 0 50px #0066ff);
-}
+} */
 
-.skills-icons{
+/* .skills-icons{
 position:absolute;
 width:100%;
 height:100%;
@@ -353,7 +349,7 @@ bottom:35%;
 right:20%;
 
 transform:translateY(-15px);
-}
+} */
 
 
 
@@ -780,64 +776,43 @@ transform:translateY(-15px);
 
     width:90%;
     max-width:1600px;
-
     margin:50px auto 100px;
-
     padding:35px 40px 45px;
-
     border-radius:25px;
-
     border:1px solid rgba(0,170,255,.15);
-
     background:
     linear-gradient(
         135deg,
         rgba(2,12,40,.95),
         rgba(5,22,70,.95)
     );
-
     position:relative;
-
     overflow:hidden;
 }
-
-
 /* =========================
    HEADER
 ========================= */
-
 .experience-header{
     margin-bottom:55px;
 }
 
 .experience-title{
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     color:#00aaff;
-
     font-size:23px;
-
     font-weight:600;
 }
 
 .experience-title i{
-
     font-size:22px;
 }
 
 .experience-subtitle{
-
     margin-top:10px;
-
     margin-left:32px;
-
     color:#9eafc3;
-
     font-size:14px;
 }
 
@@ -847,18 +822,12 @@ transform:translateY(-15px);
 ========================= */
 
 .timeline{
-
     position:relative;
-
     display:grid;
-
     grid-template-columns:
     repeat(4,1fr);
-
     gap:30px;
-
     padding:0 15px;
-
     margin-top:10px;
 }
 
@@ -866,18 +835,12 @@ transform:translateY(-15px);
 /* main glowing line */
 
 .timeline::before{
-
     content:"";
-
     position:absolute;
-
     left:15px;
     right:15px;
-
     top:33px;
-
     height:2px;
-
     background:
     linear-gradient(
         90deg,
@@ -886,28 +849,21 @@ transform:translateY(-15px);
         #00d4ff 70%,
         #00aaff 100%
     );
-
     box-shadow:
     0 0 8px rgba(0,170,255,.5),
     0 0 20px rgba(0,170,255,.15);
-
     z-index:0;
 }
-
 
 /* =========================
    ITEM
 ========================= */
 
 .timeline-item{
-
     position:relative;
-
     z-index:1;
-
     min-width:0;
 }
-
 
 /* =========================
    YEAR
@@ -916,15 +872,10 @@ transform:translateY(-15px);
 .timeline-year{
 
     text-align:center;
-
     color:#00aaff;
-
     font-size:21px;
-
     font-weight:700;
-
     margin-bottom:18px;
-
     text-shadow:
     0 0 12px rgba(0,170,255,.35);
 }
@@ -935,27 +886,18 @@ transform:translateY(-15px);
 ========================= */
 
 .timeline-dot{
-
     width:13px;
     height:13px;
-
     margin:0 auto;
-
     border-radius:50%;
-
     background:#00aaff;
-
     border:3px solid #061328;
-
     box-shadow:
     0 0 10px #00aaff,
     0 0 22px rgba(0,170,255,.7);
-
     position:relative;
-
     z-index:3;
 }
-
 
 /* =========================
    CONTENT
@@ -964,11 +906,8 @@ transform:translateY(-15px);
 .timeline-content{
 
     text-align:center;
-
     padding-top:18px;
-
     max-width:250px;
-
     margin:0 auto;
 }
 
@@ -1943,7 +1882,7 @@ transform:translateY(-15px);
         justify-content:center;
     }
 
-    .hero-image{
+    /* .hero-image{
         width:500px;
         height:580px;
     }
@@ -1951,7 +1890,7 @@ transform:translateY(-15px);
     .main-image{
         width:245px;
         top:10px;
-    }
+    } */
 
     .orbit{
         width:500px;
@@ -2658,14 +2597,14 @@ transform:translateY(-15px);
     .hero-content h3{
         font-size:16px;
     }
-    .hero-image{
+    /* .hero-image{
         width:205px;
         height:300px;
     }
 
     .main-image{
         width:185px;
-    }
+    } */
 
     .orbit{
         width:280px;
@@ -2723,7 +2662,7 @@ a{
 
 @media (max-width:400px){
 
-    .hero-image{
+    /* .hero-image{
         width:205px;
         height:300px;
         margin-top:0;
@@ -2732,7 +2671,7 @@ a{
     .main-image{
         width:185px;
         top:8px;
-    }
+    } */
 
     .orbit{
         width:230px;
