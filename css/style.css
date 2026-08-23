@@ -2700,11 +2700,11 @@ a{
     z-index:1;
 }
 
-.about-section{
+/* .about-section{
     position:relative;
     z-index:20;
     margin-top:-100px;
-}
+} */
 
 .about-card{
     position:relative;
@@ -2819,9 +2819,9 @@ a{
         height: 31px;
     }
 
-    .about-section{
+    /* .about-section{
         margin-top: -85px;
-    }
+    } */
 }
 
 
@@ -2854,7 +2854,7 @@ a{
         height: 27px;
     }
 
-    .about-section{
+    /* .about-section{
         margin-top: -75px;
-    }
+    } */
 }
