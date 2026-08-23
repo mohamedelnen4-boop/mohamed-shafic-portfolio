@@ -1,83 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===============================
-       GET HEADER
-    =============================== */
-
-    const header = document.querySelector("header");
-
-    if (!header) {
-        console.warn("Header not found");
-        return;
-    }
-
-
-    /* ===============================
-       GET / CREATE NAV
-    =============================== */
-
-    let mainNav =
-        document.getElementById("mainNav") ||
-        header.querySelector("nav");
-
-    if (!mainNav) {
-        console.warn("Navigation not found");
-        return;
-    }
-
-    mainNav.id = "mainNav";
-    mainNav.classList.add("main-nav");
-
-
-    /* ===============================
-       GET / CREATE MENU BUTTON
-    =============================== */
-
-    let menuToggle =
+    const menuToggle =
         document.getElementById("menuToggle");
 
-    if (!menuToggle) {
+    const mainNav =
+        document.getElementById("mainNav");
 
-        menuToggle =
-            document.createElement("button");
+    const navLinks =
+        document.querySelectorAll(".main-nav a");
 
-        menuToggle.type = "button";
 
-        menuToggle.id = "menuToggle";
+    /* =========================
+       Safety Check
+    ========================= */
 
-        menuToggle.className = "menu-toggle";
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open menu"
-        );
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuToggle.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
-
-        header.appendChild(menuToggle);
+    if (!menuToggle || !mainNav) {
+        console.warn("Mobile menu elements not found.");
+        return;
     }
 
 
-    /* ===============================
-       NAV LINKS
-    =============================== */
-
-    const navLinks =
-        mainNav.querySelectorAll("a");
-
-
-    /* ===============================
-       OPEN MENU
-    =============================== */
+    /* =========================
+       Open / Close Menu
+    ========================= */
 
     function openMenu() {
 
@@ -92,10 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ===============================
-       CLOSE MENU
-    =============================== */
-
     function closeMenu() {
 
         mainNav.classList.remove("open");
@@ -109,83 +50,72 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ===============================
-       TOGGLE MENU
-    =============================== */
-
-    menuToggle.addEventListener("click", (event) => {
+    function toggleMenu(event) {
 
         event.preventDefault();
-
         event.stopPropagation();
 
-        const isOpen =
-            mainNav.classList.contains("open");
-
-        if (isOpen) {
-
+        if (
+            mainNav.classList.contains("open")
+        ) {
             closeMenu();
-
         } else {
-
             openMenu();
-
         }
+    }
 
-    });
+
+    /* =========================
+       Menu Button
+    ========================= */
+
+    menuToggle.addEventListener(
+        "click",
+        toggleMenu
+    );
 
 
-    /* ===============================
-       NAVIGATION LINKS
-    =============================== */
+    /* =========================
+       Navigation Links
+    ========================= */
 
     navLinks.forEach((link) => {
 
         link.addEventListener("click", () => {
 
             navLinks.forEach((item) => {
-
                 item.classList.remove("active");
-
             });
 
             link.classList.add("active");
 
             closeMenu();
-
         });
 
     });
 
 
-    /* ===============================
-       CLICK OUTSIDE
-    =============================== */
+    /* =========================
+       Click Outside
+    ========================= */
 
     document.addEventListener("click", (event) => {
 
-        const clickedInsideNav =
-            mainNav.contains(event.target);
-
-        const clickedMenuButton =
-            menuToggle.contains(event.target);
-
         if (
             mainNav.classList.contains("open") &&
-            !clickedInsideNav &&
-            !clickedMenuButton
+            !mainNav.contains(event.target) &&
+            !menuToggle.contains(event.target)
         ) {
 
             closeMenu();
-
         }
 
     });
 
 
-    /* ===============================
-       ESC KEY
-    =============================== */
+    /* =========================
+       Escape
+    ========================= */
 
     document.addEventListener("keydown", (event) => {
 
@@ -198,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* ===============================
-       CLOSE ON RESIZE
-    =============================== */
+    /* =========================
+       Close On Desktop
+    ========================= */
 
     window.addEventListener("resize", () => {
 

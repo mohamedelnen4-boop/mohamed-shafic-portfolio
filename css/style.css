@@ -2778,3 +2778,144 @@ a{
         rgba(5,22,70,.99)
     );
 }
+
+
+/* =========================================================
+   FINAL HERO IMAGE RESPONSIVE FIX
+========================================================= */
+
+/* Tablet */
+@media (max-width: 992px){
+
+    .hero{
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    .hero-image{
+        width: 320px;
+        height: 470px;
+    }
+
+    .main-image{
+        width: 260px;
+        top: 20px;
+    }
+
+    .orbit{
+        width: 360px;
+        height: 360px;
+        margin-left: -180px;
+        margin-top: -180px;
+    }
+
+    .skill-icon{
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* Large Mobile */
+@media (max-width: 768px){
+
+    .hero{
+        padding-top: 90px;
+        padding-bottom: 60px;
+    }
+
+    .hero-image{
+        width: 270px;
+        height: 390px;
+        margin: 0 auto;
+    }
+
+    .main-image{
+        width: 225px;
+        top: 10px;
+    }
+
+    .orbit{
+        width: 310px;
+        height: 310px;
+        margin-left: -155px;
+        margin-top: -155px;
+    }
+
+    .skill-icon{
+        width: 36px;
+        height: 36px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 576px){
+
+    .hero{
+        padding-top: 85px;
+        padding-bottom: 45px;
+    }
+
+    .hero-image{
+        width: 230px;
+        height: 330px;
+        margin: 0 auto;
+    }
+
+    .main-image{
+        width: 195px;
+        top: 5px;
+    }
+
+    .orbit{
+        width: 265px;
+        height: 265px;
+        margin-left: -132.5px;
+        margin-top: -132.5px;
+    }
+
+    .skill-icon{
+        width: 31px;
+        height: 31px;
+    }
+
+    .about-section{
+        margin-top: -85px;
+    }
+}
+
+
+/* Small Mobile */
+@media (max-width: 400px){
+
+    .hero{
+        padding-top: 82px;
+    }
+
+    .hero-image{
+        width: 205px;
+        height: 295px;
+    }
+
+    .main-image{
+        width: 175px;
+        top: 0;
+    }
+
+    .orbit{
+        width: 225px;
+        height: 225px;
+        margin-left: -112.5px;
+        margin-top: -112.5px;
+    }
+
+    .skill-icon{
+        width: 27px;
+        height: 27px;
+    }
+
+    .about-section{
+        margin-top: -75px;
+    }
+}
